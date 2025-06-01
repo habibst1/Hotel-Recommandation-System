@@ -1,0 +1,6 @@
+# Ignore all .ipynb_checkpoints folders
+.ipynb_checkpoints/
+
+# Ignore specific folders in 1_Scraping and Filtering
+1_Scraping and Filtering/deception_detector_bert_cased/
+1_Scraping and Filtering/hotel_details_no_reviews full version/
