@@ -1,85 +1,86 @@
+# 🏨 HotelMatch Tunisia
 
-# Hotel Recommendation System
+**HotelMatch Tunisia** is an AI-powered hotel recommendation assistant built specifically for **Tunisian hotels**.  
+It helps travelers quickly decide whether a hotel matches their needs by analyzing **real guest reviews** and **hotel amenities**.
 
-## Overview
-This project develops a recommendation system for hotels in Tunisia by scraping hotel data and reviews from TripAdvisor, processing the data to filter out deceptive reviews, and using Retrieval-Augmented Generation (RAG) to provide personalized hotel recommendations. The system focuses on Tunisian hotels due to resource constraints, with plans for future expansion.
+---
 
-## Repository Structure
-The project is organized into four main directories, each containing a Jupyter notebook that handles a specific part of the pipeline:
+## 🎯 Use Case
 
-### 1. Scraping and Filtering
-- **1_Scraping No Details No Reviews.ipynb**: Scrapes basic information (e.g., hotel names and links) for all Tunisian hotels listed on TripAdvisor.
-- **2_Scraping Details.ipynb**: Accesses each hotel's TripAdvisor page using the links from the previous step to extract detailed information, such as location, rating, description, property amenities, room features, room types, hotel class, languages spoken, and hotel style.
-- **3_Scraping Reviews.ipynb**: Collects the latest 30 reviews for each hotel from TripAdvisor.
-- **4_Filtering Reviews.ipynb**: Uses a fine-tuned BERT model to filter out deceptive reviews, retaining only truthful reviews for further processing.
+Instead of scrolling through endless reviews, simply ask in natural language:
 
-**Output Data Format**:
-The processed data is structured as follows:
-```json
-{
-    "name": "...",
-    "link": "...",
-    "country": "...",
-    "location": "...",
-    "rating": "..",
-    "num_reviews": ..,
-    "hotel_number": ..,
-    "description": "...",
-    "property_amenities": [
-        ...
-    ],
-    "room_features": [
-        ...
-    ],
-    "room_types": [
-        ...
-    ],
-    "hotel_class": "...",
-    "languages_spoken": [
-        ...
-    ],
-    "hotel_style": [
-        ...
-    ],
-    "reviews": [
-        ...
-    ]
-}
-```
+> *"Do you recommend Nour Palace Mahdia for a family with 4 kids, looking for good entertainment for children and high-quality service?"*
 
-### 2. JSON to Markdown
-- **json_to_markdown.ipynb**: Converts the JSON dataset into Markdown format to enable better chunking and vectorization for use in the RAG system, preserving context.
+The system will:
+1. Extract the hotel name from your query.
+2. Match it against a curated database of Tunisian hotels.
+3. Retrieve the hotel’s amenities and the **most relevant reviews for your case from the last 6 months**.
+4. Run an **RAG pipeline** with a powerful LLM to give you a clear, data-driven recommendation:  
+   ✅ *Recommended* or ❌ *Not Recommended* — with detailed reasoning.
 
-### 3. Vector Storage
-- **Vector Storing.ipynb**: Applies a MarkdownSplitter to chunk the Markdown data and stores the resulting chunks in a ChromaDB vector store for efficient retrieval.
+---
 
-### 4. RAG
-- **RAG.ipynb**: Implements the Retrieval-Augmented Generation (RAG) pipeline. The process is as follows:
-  1. A user submits a prompt requesting a hotel recommendation.
-  2. Performs a similarity search to retrieve the relevant hotel name.
-  3. Retrieves the corresponding hotel information chunks and latest reviews from the vector store.
-  4. Uses Gemini to create a coherent Hotel Context and coherent Latest Reviews from the retrieved chunks.
-  5. Constructs a prompt template , combining:
-     - **User Prompt**: The user's recommendation query.
-     - **Hotel Context**: Details about the hotel (e.g., amenities, description).
-     - **Latest Reviews**: Filtered truthful reviews.
-  6. The final prompt template for Gemini is:
-     ```
-     User Prompt: ...
-     Hotel Context: ...
-     Latest Reviews: ...
-     ```
-  7. Gemini generates a personalized hotel recommendation based on the provided information.
+## 🖼️ Demo
 
-## Project Workflow
-1. **Data Collection**: Scrape hotel data and reviews from TripAdvisor.
-2. **Data Filtering**: Use a fine-tuned BERT model to eliminate deceptive reviews.
-3. **Data Processing**: Convert the JSON dataset to Markdown for better chunking.
-4. **Vector Storage**: Store the processed data in ChromaDB for efficient retrieval.
-5. **Recommendation**: Use RAG with Gemini to generate hotel recommendations based on user queries.
+🎥 *(Insert your demo MP4/GIF here)*  
 
-## Future Work
-- Expand the system to include hotels from other countries.
-- Enhance the BERT model for better review filtering.
-- Optimize the RAG pipeline for faster and more accurate recommendations.
+---
 
+## 🖼️ Technical Demo
+
+🎥 *(Insert your demo MP4/GIF here)*  
+
+---
+
+## ✨ Features
+
+- 🔍 **Ask in natural language** → no filters, no dropdowns. Just type your preferences.  
+- 🏨 **Hotel database** → scraped from TripAdvisor with up-to-date details and reviews.  
+- 📊 **Context-aware answers** → considers both hotel info (amenities, type) and real guest experiences.  
+- 💬 **Streaming chatbot** → recommendations arrive gradually, like a real conversation.  
+- 👨‍👩‍👧‍👦 **Family-focused & flexible** → evaluate hotels for families, couples, quiet getaways, or budget stays.  
+- 🌍 **Localized to Tunisia** → optimized for Tunisian hotels only.  
+
+---
+
+## 🛠️ How It Works
+
+1. **Data Collection**  
+   - Scraping hotel names, details, and reviews (last 6 months).  
+   - Filtering and cleaning into JSON.  
+
+2. **Data Preparation**  
+   - Converted into Markdown for better chunking.  
+   - Stored as embeddings inside a **Chroma vector database**.  
+
+3. **Recommendation Pipeline**  
+   - User query → hotel name extraction → retrieve relevant hotel info + reviews.  
+   - RAG prompt construction with context + reviews.  
+   - **Groq LLM** generates a final recommendation.  
+
+4. **Frontend Experience**  
+   - Built with **React + Tailwind CSS**.  
+   - Chat-like interface with streaming responses.  
+   - Showcase of popular Tunisian hotels ready for instant evaluation.  
+
+---
+
+
+## ⚙️ Tech Stack
+
+- **Frontend**: React, Tailwind CSS  
+- **Backend**: FastAPI, LangChain, Groq LLM  
+- **Vector DB**: Chroma with HuggingFace embeddings (`all-MiniLM-L6-v2`)  
+- **Data Pipeline**: Python notebooks for scraping, filtering, and preprocessing  
+
+---
+
+## 🚀 Example Questions
+
+- *"Is Iberostar Royal El Mansour suitable for a couple’s luxury getaway?"*  
+- *"Does TUI Blue Manar Hammamet have good activities for kids?"*  
+- *"Is Sentido Marillia Hammamet a quiet hotel for relaxation?"*  
+
+---
+
+💡 With **HotelMatch Tunisia**, you don’t have to read hundreds of reviews — just ask, and get a clear recommendation backed by data.

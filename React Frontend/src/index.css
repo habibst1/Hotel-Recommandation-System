@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+@import "tailwindcss/preflight"
+@tailwind utilities;
+
+/* Base styles */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8fafc;
+  color: #334155;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Message container specific styles */
+.message-container {
+  @apply space-y-4;
+}
+
+/* Chat message specific styles */
+.chat-message {
+  @apply max-w-xs lg:max-w-2xl px-4 py-3 rounded-lg;
+}
+
+.chat-message.user {
+  @apply bg-gradient-to-r from-blue-500 to-indigo-600 text-white;
+}
+
+.chat-message.ai {
+  @apply bg-white border border-gray-200 text-gray-800 shadow-sm;
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Smooth transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Focus states */
+.focus\:ring-2:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+.focus\:ring-orange-500:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(249 115 22 / var(--tw-ring-opacity));
+}
+
+/* Responsive design helpers */
+@media (min-width: 1024px) {
+  .max-w-2xl {
+    max-width: 42rem;
+  }
+}
+
+/* Typography improvements */
+.leading-relaxed {
+  line-height: 1.625;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+/* Add these styles to your index.css for better markdown rendering */
+
+/* Table styles */
+.prose table {
+  @apply min-w-full divide-y divide-gray-200;
+}
+
+.prose thead {
+  @apply bg-gray-50;
+}
+
+.prose th {
+  @apply px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider;
+}
+
+.prose td {
+  @apply px-4 py-2 text-sm text-gray-700;
+}
+
+.prose tbody {
+  @apply bg-white divide-y divide-gray-200;
+}
+
+/* Code block styles */
+.prose pre {
+  @apply bg-gray-800 text-white p-4 rounded-lg overflow-x-auto mb-4;
+}
+
+.prose code {
+  @apply bg-gray-100 px-1 py-0.5 rounded text-xs font-mono;
+}
+
+/* List styles */
+.prose ul {
+  @apply list-disc list-inside space-y-1 mb-4;
+}
+
+.prose ol {
+  @apply list-decimal list-inside space-y-1 mb-4;
+}
+
+/* Blockquote styles */
+.prose blockquote {
+  @apply border-l-4 border-orange-500 pl-4 italic text-gray-600 my-4;
+}
+
+/* Link styles */
+.prose a {
+  @apply text-orange-600 hover:text-orange-800 underline;
+}
+
+/* Heading styles */
+.prose h1 {
+  @apply text-2xl font-bold text-gray-900 mt-6 mb-4;
+}
+
+.prose h2 {
+  @apply text-xl font-bold text-orange-700 mt-5 mb-3 border-b border-orange-200 pb-2;
+}
+
+.prose h3 {
+  @apply text-lg font-semibold text-gray-800 mt-4 mb-2;
+}
+
+.prose h4 {
+  @apply text-base font-semibold text-gray-700 mt-3 mb-2;
+}
+
+/* Paragraph styles */
+.prose p {
+  @apply text-sm text-gray-700 leading-relaxed mb-3;
+}
+
+/* Horizontal rule */
+.prose hr {
+  @apply my-6 border-gray-200;
+}

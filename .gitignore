@@ -1,6 +1,20 @@
-# Ignore all .ipynb_checkpoints folders
-.ipynb_checkpoints/
+# Ignore context.txt file
+context.txt
 
-# Ignore specific folders in 1_Scraping and Filtering
-1_Scraping and Filtering/deception_detector_bert_cased/
-1_Scraping and Filtering/hotel_details_no_reviews full version/
+# Ignore all __pycache__ directories
+**/__pycache__/
+
+# Ignore the entire 4_RAG folder
+4_RAG/
+
+# Ignore all .ipynb_checkpoints directories
+**/.ipynb_checkpoints/
+
+# Ignore all .json files
+*.json
+
+# Ignore specific notebook file
+4_Filtering\ Reviews.ipynb
+
+# Ignore the deception_detector_bert_cased folder
+deception_detector_bert_cased/
