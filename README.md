@@ -22,13 +22,13 @@ The system will:
 
 ## 🖼️ Demo
 
-🎥 *(Insert your demo MP4/GIF here)*  
+https://github.com/user-attachments/assets/d67e39f9-a72c-4b6b-8439-9bf01ff00d9c
 
 ---
 
 ## 🖼️ Technical Demo
 
-🎥 *(Insert your demo MP4/GIF here)*  
+https://github.com/user-attachments/assets/0785dfd7-1ee5-43db-9857-1b42f223736b
 
 ---
 
