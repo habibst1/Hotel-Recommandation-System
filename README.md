@@ -1,7 +1,7 @@
 # 🏨 HotelMatch Tunisia
 
 **HotelMatch Tunisia** is an AI-powered hotel recommendation assistant built specifically for **Tunisian hotels**.  
-It helps travelers quickly decide whether a hotel matches their needs by analyzing **real guest reviews** and **hotel amenities**.
+It helps travelers quickly decide whether a hotel matches their needs by analyzing **real guest reviews** and **hotel amenities**. 
 
 ---
 
